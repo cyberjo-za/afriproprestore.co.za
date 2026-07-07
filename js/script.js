@@ -1,5 +1,35 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+  /* ===== Cookie Banner ===== */
+  const cookieBanner = document.getElementById('cookieBanner');
+  const cookieAccept = document.getElementById('cookieAccept');
+  const cookieReject = document.getElementById('cookieReject');
+
+  if (cookieBanner) {
+    const consent = localStorage.getItem('afriproprestore-cookie-consent');
+    if (!consent) {
+      cookieBanner.classList.add('show');
+    }
+
+    const hideBanner = function () {
+      cookieBanner.classList.remove('show');
+    };
+
+    if (cookieAccept) {
+      cookieAccept.addEventListener('click', function () {
+        localStorage.setItem('afriproprestore-cookie-consent', 'accepted');
+        hideBanner();
+      });
+    }
+
+    if (cookieReject) {
+      cookieReject.addEventListener('click', function () {
+        localStorage.setItem('afriproprestore-cookie-consent', 'rejected');
+        hideBanner();
+      });
+    }
+  }
+
   /* ===== Mobile Nav Toggle ===== */
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
@@ -108,20 +138,20 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      // Build mailto link with prefilled details
-      const subject = encodeURIComponent('New Enquiry from AfriProp Restore Website: ' + enquiry.value);
-      const body = encodeURIComponent(
+      // Build WhatsApp message with prefilled details
+      const whatsappNumber = '27840387152';
+      const whatsappMessage = encodeURIComponent(
+        'Hello AfriProp Restore,\n\n' +
         'Name: ' + name.value + '\n' +
         'Email: ' + email.value + '\n' +
         'Phone: ' + (phone.value || 'Not provided') + '\n' +
         'Enquiry Type: ' + enquiry.value + '\n\n' +
         'Message:\n' + message.value
       );
+      const whatsappLink = 'https://wa.me/' + whatsappNumber + '?text=' + whatsappMessage;
 
-      const mailtoLink = 'mailto:info@afriproprestore.co.za?subject=' + subject + '&body=' + body;
-
-      successMsg.textContent = 'Thank you. Your email client will now open so you can send your message to our team.';
-      window.location.href = mailtoLink;
+      successMsg.textContent = 'Thank you. Your WhatsApp chat is opening with your message pre-filled.';
+      window.open(whatsappLink, '_blank', 'noopener,noreferrer');
 
       contactForm.reset();
     });

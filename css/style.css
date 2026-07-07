@@ -71,7 +71,25 @@ ul { list-style: none; }
   content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 3px;
   background: linear-gradient(90deg, var(--green), var(--orange)); border-radius: 3px;
 }
-.nav-cta { padding: 10px 22px; }
+.main-nav .nav-cta {
+  padding: 12px 24px;
+  color: #fff;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--green) 0%, #2f8a3b 100%);
+  border: 2px solid var(--green);
+  border-radius: 999px;
+  box-shadow: 0 10px 22px rgba(63, 168, 69, 0.22);
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+}
+.main-nav .nav-cta:hover {
+  background: linear-gradient(135deg, #2f8a3b 0%, var(--navy) 100%);
+  border-color: var(--navy);
+  transform: translateY(-2px);
+}
 .nav-toggle {
   display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer;
 }
@@ -268,6 +286,32 @@ ul { list-style: none; }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.08); text-align: center; padding: 20px 0; font-size: 0.8rem; color: #8a99a4;
 }
+
+/* ========== PRIVACY / COOKIE ========== */
+.cookie-banner {
+  position: fixed; left: 20px; right: 20px; bottom: 20px; z-index: 120;
+  background: #fff; border: 1px solid #dfe7ed; border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.16); padding: 18px 20px; display: none;
+  align-items: center; justify-content: space-between; gap: 16px;
+}
+.cookie-banner.show { display: flex; }
+.cookie-banner p { color: var(--text); font-size: 0.95rem; }
+.cookie-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.cookie-btn {
+  border: none; border-radius: 999px; padding: 10px 16px; cursor: pointer; font-weight: 600;
+  font-family: 'Poppins', Arial, sans-serif; font-size: 0.9rem;
+}
+.cookie-btn.accept { background: var(--green); color: #fff; }
+.cookie-btn.reject { background: var(--grey-light); color: var(--navy); }
+.cookie-banner a { color: var(--green); font-weight: 600; }
+.privacy-policy-content { display: grid; gap: 24px; }
+.privacy-card, .privacy-list-card {
+  background: #fff; border-radius: var(--radius); padding: 28px 24px; box-shadow: var(--shadow);
+}
+.privacy-card h2, .privacy-card h3, .privacy-list-card h3 { margin-bottom: 12px; }
+.privacy-card p, .privacy-list-card p { color: var(--grey); margin-bottom: 10px; }
+.privacy-list-card ul { padding-left: 18px; color: var(--grey); }
+.privacy-list-card li { margin-bottom: 6px; }
 
 /* ========== BACK TO TOP ========== */
 .back-to-top {
