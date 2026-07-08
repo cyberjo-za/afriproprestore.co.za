@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       // Build WhatsApp message with prefilled details
-      const whatsappNumber = '27840387152';
+      const whatsappNumber = '27615164609';
       const whatsappMessage = encodeURIComponent(
         'Hello AfriProp Restore,\n\n' +
         'Name: ' + name.value + '\n' +
